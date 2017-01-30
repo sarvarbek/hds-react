@@ -1,0 +1,12 @@
+.header-component {
+	height: 100vh;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+	}
+
+	canvas {
+		position: absolute;
+	}
+}

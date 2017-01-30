@@ -1,0 +1,30 @@
+.about-component {
+	.section-title {
+		display: inline-block;
+
+		&.animated.from-left.activated {
+		    left: calc(50% - 151px);
+		}
+	}
+
+	.animated {
+		position: relative;
+		transition: 1.5s all;
+
+		&.from-left {
+			left: -200%;
+
+			&.activated {
+			    left: 0;
+			}
+		}
+
+		&.from-right {
+			left: 200%;
+
+			&.activated {
+			    left: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+.navbar-brand {
+	position: absolute;
+	width: 67px;
+	height: 100%;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+.navbar-nav {
+	.nav-item {
+		&:last-child {
+			.nav-link::after {
+				content: "";
+			}
+		}
+	}
+
+	.nav-link {
+		text-transform: uppercase;
+		transition: .3s all;
+		font-size: 1.3rem;
+
+		&::after {
+			content: "•";
+		    color: #fff;
+		    margin-left: 15px;
+		}
+	}
+}
