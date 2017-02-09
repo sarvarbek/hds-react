@@ -3,7 +3,6 @@
 import React from 'react';
 
 var classNames = require('classnames');
-var debounce = require('debounce');
 
 require('styles//Services.scss');
 
@@ -11,6 +10,7 @@ class ServicesComponent extends React.Component {
 
 	constructor(props) {
 		super(props);
+
 		this.state = {sectionTitleVisible: false};
 	}
 
@@ -38,6 +38,8 @@ class ServicesComponent extends React.Component {
 	}
 
 	handleVisibility(el) {
+		if (this.state.sectionTitleVisible === true) return;
+
 		let visible = this.isElementInViewport(el);
 
 		if (visible) {

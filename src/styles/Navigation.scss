@@ -6,6 +6,21 @@
 	padding-bottom: 0 !important;
 }
 
+.navbar {
+	overflow-y: hidden;
+	height: 67px; /* approximate max height */
+	opacity: 1;
+		
+	transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
+	&.hidden {
+		height: 0;
+		opacity: 0;
+	}
+}
+
 .navbar-nav {
 	.nav-item {
 		&:last-child {

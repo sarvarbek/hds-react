@@ -3,7 +3,7 @@
 import React from 'react';
 
 var classNames = require('classnames');
-var debounce = require('debounce');
+//var debounce = require('debounce');
 
 require('styles//Navigation.scss');
 
@@ -11,6 +11,7 @@ class NavigationComponent extends React.Component {
 
 	constructor(props) {
 		super(props);
+
 		this.state = {navVisible: false};
 	}
 
@@ -28,23 +29,19 @@ class NavigationComponent extends React.Component {
 		this.handleVisibility(el);
 	}
 
-	shouldBeVisible(el) {
+	isVisible(el) {
 	    let rect = el.getBoundingClientRect();
 
-	    return (
-	        rect.top >= 0 &&
-	        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) /*or $(window).height() */
-	    );
+	    return rect.bottom <= window.innerHeight - window.innerHeight * .95; /* at least scrolled 20% of window height  */
 	}
 
 	handleVisibility(el) {
-		let visible = this.shouldBeVisible(el);
+		let visible = this.isVisible(el);
 
 		this.setState({
 	  		navVisible: visible
 		});
 	}
-
 
   	render() {
 
@@ -54,11 +51,11 @@ class NavigationComponent extends React.Component {
 			'navbar-toggleable-md': true,
 			'navbar-inverse': true,
 			'bg-inverse': true,
-			'hidden': this.state.isVisible
+			'hidden': !this.state.navVisible
 	    });
 
 	    return (
-	      	<nav className="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
+	      	<nav className={navbarClasses}>
 				<button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 					<span className="navbar-toggler-icon"></span>
 				</button>
