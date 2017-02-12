@@ -70,7 +70,7 @@ class AboutComponent extends React.Component {
 	    });
 
 		return (
-			<div className="about-component section-group">
+			<div className="about-component section-group" id="about">
 				<h1 className={h1Classes}>HDS Productions</h1>
 
 				<div className="row justify-content-md-center">

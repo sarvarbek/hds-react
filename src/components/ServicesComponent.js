@@ -79,7 +79,7 @@ class ServicesComponent extends React.Component {
 	    });
 
 		return (
-			<div className="services-component section-group">
+			<div className="services-component section-group" id="services">
 				<div className={sectionTitleClasses}>
 					<h1 className="section-title ml-auto">What We Do</h1>
 				</div>
