@@ -1,6 +1,10 @@
 /* Import Bootstrap Styles */
 @import "bootstrap";
 
+body {
+	scroll-behavior: smooth;
+}
+
 .section-group {
 	padding: 40px 0;
 }
