@@ -43,6 +43,39 @@ class NavigationComponent extends React.Component {
 		});
 	}
 
+	handleNavClick(e) {
+		const component = e.target.getAttribute('href');
+
+      	this.doScrolling(component, 250);
+	}
+
+	getElementY(query) {
+  		return window.pageYOffset + document.querySelector(query).getBoundingClientRect().top;
+	}
+
+	doScrolling(element, duration) { 
+		var startingY = window.pageYOffset;
+		var elementY = this.getElementY(element);
+		var diff = elementY - startingY  
+		var start
+
+		// Bootstrap our animation - it will get called right before next frame shall be rendered.
+		window.requestAnimationFrame(function step(timestamp) {
+			if (!start) start = timestamp
+			// Elapsed miliseconds since start of scrolling.
+			var time = timestamp - start
+			// Get percent of completion in range [0, 1].
+			var percent = Math.min(time / duration, 1)
+
+			window.scrollTo(0, startingY + diff * percent)
+
+			// Proceed with animation as long as we wanted it to.
+			if (time < duration) {
+				window.requestAnimationFrame(step)
+			}
+		})
+	}
+
   	render() {
 
   		let navbarClasses = classNames({
@@ -67,16 +100,16 @@ class NavigationComponent extends React.Component {
 				<div className="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
 					<ul className="navbar-nav">
 					  	<li className="nav-item active">
-					    	<a className="nav-link" href="#">About Us <span className="sr-only">(current)</span></a>
+					    	<a className="nav-link" href="#about" onClick={this.handleNavClick.bind(this)}>About Us <span className="sr-only">(current)</span></a>
 					  	</li>
 					  	<li className="nav-item">
-					    	<a className="nav-link" href="#">What We Do</a>
+					    	<a className="nav-link" href="#services" onClick={this.handleNavClick.bind(this)}>What We Do</a>
 					  	</li>
 					  	<li className="nav-item">
-					    	<a className="nav-link" href="#">Our Work</a>
+					    	<a className="nav-link" href="#portfolio" onClick={this.handleNavClick.bind(this)}>Our Work</a>
 					  	</li>
 					  	<li className="nav-item">
-					    	<a className="nav-link" href="#">Contact Us</a>
+					    	<a className="nav-link" href="#contact" onClick={this.handleNavClick.bind(this)}>Contact Us</a>
 					  	</li>
 					</ul>
 				</div>
