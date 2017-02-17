@@ -1,6 +1,7 @@
 .header-component {
 	height: 100vh;
 	overflow: hidden;
+	position: relative;
 
 	img {
 		width: 100%;
@@ -9,4 +10,22 @@
 	canvas {
 		position: absolute;
 	}
+
+	.header-content {
+		position: absolute;
+    	color: #fff;
+    	top: 30%;
+    	width: 100%;
+
+    	h1 {
+    		font-size: 5rem;
+    		margin-bottom: 0;
+    		text-align: center;
+    	}
+
+    	p {
+    		letter-spacing: 0.31rem;
+    		text-align: center;
+    	}
+    }
 }
