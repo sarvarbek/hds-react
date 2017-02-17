@@ -5,6 +5,7 @@ import NavigationComponent from 'components/NavigationComponent';
 import HeaderComponent from 'components/HeaderComponent';
 import AboutComponent from 'components/AboutComponent';
 import ServicesComponent from 'components/ServicesComponent';
+import ContactComponent from 'components/ContactComponent';
 
 class AppComponent extends React.Component {
   render() {
@@ -14,6 +15,7 @@ class AppComponent extends React.Component {
       		<HeaderComponent />
       		<AboutComponent />
       		<ServicesComponent />
+      		<ContactComponent />
     	</div>
     );
   }

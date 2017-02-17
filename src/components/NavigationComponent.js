@@ -53,19 +53,19 @@ class NavigationComponent extends React.Component {
   		return window.pageYOffset + document.querySelector(query).getBoundingClientRect().top;
 	}
 
-	doScrolling(element, duration) { 
-		var startingY = window.pageYOffset;
-		var elementY = this.getElementY(element);
-		var diff = elementY - startingY  
-		var start
+	doScrolling(element, duration) {
+		let startingY = window.pageYOffset;
+		let elementY = this.getElementY(element);
+		let diff = elementY - startingY;
+		let start;
 
 		// Bootstrap our animation - it will get called right before next frame shall be rendered.
 		window.requestAnimationFrame(function step(timestamp) {
 			if (!start) start = timestamp
 			// Elapsed miliseconds since start of scrolling.
-			var time = timestamp - start
+			let time = timestamp - start
 			// Get percent of completion in range [0, 1].
-			var percent = Math.min(time / duration, 1)
+			let percent = Math.min(time / duration, 1)
 
 			window.scrollTo(0, startingY + diff * percent)
 
